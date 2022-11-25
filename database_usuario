@@ -1,0 +1,1 @@
+CREATE TABLE `6gag9`.`usuarios` (`id_usuario` INT NOT NULL AUTO_INCREMENT , `nombre_usuario` VARCHAR(255) NOT NULL , `mail_usuario` VARCHAR(255) NOT NULL , `contrasena_usuario` VARCHAR(255) NOT NULL , `tipo_usuario` TINYINT NOT NULL , `estado_usuario` TINYINT NOT NULL , PRIMARY KEY (`id_usuario`)) ENGINE = InnoDB;
