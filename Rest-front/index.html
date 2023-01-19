@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Inicio</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light border-bottom border-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand m-auto" href="./"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111316.png" width="64" height="64"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active ms-2" aria-current="page" type="button" id="randomButton">
+                            Random
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shuffle" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.624 9.624 0 0 0 7.556 8a9.624 9.624 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.595 10.595 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.624 9.624 0 0 0 6.444 8a9.624 9.624 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5z"/>
+                                <path d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192zm0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+                <form class="d-flex" id="searchForm" method="get">
+                    <input class="form-control me-2 ms-2" name="descripcion" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="form-row"><br><br><br><br></div>
+    <div id="contenido">
+    </div>
+    <script>
+        //Una vez el dom a cargado ejecutamos esta funcion
+        $( document ).ready(function() {
+            $.ajax({
+                url: 'http://localhost:8080/api/publicacion/all',
+                type: 'GET',
+                dataType: 'json',
+                success: function(res) {
+                    let data = '';
+
+                    res.forEach(element => {
+                        data+=`
+                        <div class="container d-flex align-items-center justify-content-center">
+                            <div class="col-md-6 px-0">
+                                <fieldset class="border p-2">
+                                    <div class="text-center">
+                                        <img src="data:image/jpeg;base64,${element.foto}" class="img-fluid">
+                                    </div>
+                                    <p>${element.descripcion}</p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="form-row"><br><br></div>
+                        `
+                    });
+
+                    $("#contenido").html(data);
+                }
+            });
+        });
+        //Funcion para cuando se haga una busqued por descripcion
+        $("#searchForm").submit(function(event) {
+            event.preventDefault();
+
+            let description = document.getElementById("searchInput").value;
+            if(description.length < 1) {
+                dialogErrorBusqueda();
+                return;
+            }
+
+            //Eliminamos el contenido del div
+            $("#contenido").empty();
+
+            $.ajax({
+                url: 'http://localhost:8080/api/publicacion/search?descripcion=' + description,
+                type: 'GET',
+                dataType: 'json',
+                success: function(res) {
+                    let data = '';
+
+                    res.forEach(element => {
+                        data+=`
+                        <div class="container d-flex align-items-center justify-content-center">
+                            <div class="col-md-6 px-0">
+                                <fieldset class="border p-2">
+                                    <div class="text-center">
+                                        <img src="data:image/jpeg;base64,${element.foto}" class="img-fluid">
+                                    </div>
+                                    <p>${element.descripcion}</p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="form-row"><br><br></div>
+                        `
+                    });
+
+                    $("#contenido").html(data);
+                }
+            });
+        });
+
+        //Cuando le de click a random
+        $("#randomButton").click(function() {
+            $("#contenido").empty();
+            $.ajax({
+                url: 'http://localhost:8080/api/publicacion/random',
+                type: 'GET',
+                dataType: 'json',
+                success: function(res) {
+                    let data = `
+                        <div class="container d-flex align-items-center justify-content-center">
+                            <div class="col-md-6 px-0">
+                                <fieldset class="border p-2">
+                                    <div class="text-center">
+                                        <img src="data:image/jpeg;base64,${res.foto}" class="img-fluid">
+                                    </div>
+                                    <p>${res.descripcion}</p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="form-row"><br><br></div>
+                        `;
+
+                    $("#contenido").html(data);
+                }
+            });
+        });
+
+        //dialog 
+        function dialogErrorBusqueda(){
+            Swal.fire(
+		        'Ops....',
+		        'Debes introducir almenos un caracter.',
+		        'info'
+	        )
+        }
+    </script>
+</body>
+</html>
