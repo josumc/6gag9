@@ -1,1 +1,0 @@
-CREATE TABLE `6gag9`.`9gag` (`id_foto` INT NOT NULL AUTO_INCREMENT , `foto` BLOB NOT NULL , `descripcion_foto` VARCHAR(255) NOT NULL , `id_usuario` INT NOT NULL , PRIMARY KEY (`id_foto`)) ENGINE = InnoDB;
