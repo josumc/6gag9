@@ -32,4 +32,11 @@ usuarios (1:N) publicacion
 usuarios (1:N) likes
 publicacion (1:N) likes
 
-![diagrama de la base datos](/bbdd.PNG)
+![diagrama de la base datos](/documentacion/bbdd.PNG)
+
+## Instalación
+
+Antes de realizar está instalación es necesario tener instalado los entornos de desarrollo de Eclipse y Spring Tool Suit 4 , tener XAMPP o alguna otra aplicación que active la conexión con la bbdd y crear la bbdd con el nombre de superanime e tener una versión de Tomcat instalada.Para poder iniciar esta aplicación hay que entrar desde a github 
+Para realizar la instalacion es necesario tener el entorno de Eclipse con la suite de Spring Tools, tambien es necesario tener el XAMPP para activar la conexion de bbdd y tener el apache Tomcat instalado. Para obtener esta aplicacion descargaremos el zip desde el [github](https://github.com/josumc/6gag9/)
+
+![Descarga del zip](/documentacion/zip.PNG)
