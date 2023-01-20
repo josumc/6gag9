@@ -32,4 +32,4 @@ usuarios (1:N) publicacion
 usuarios (1:N) likes
 publicacion (1:N) likes
 
-![diagrama de la base datos](/documentacion/bbdd.PNG)
+![diagrama de la base datos](/bbdd.PNG)
