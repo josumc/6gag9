@@ -7,21 +7,21 @@ Hemos diseñado un proyecto con la idea de generar una red social dedicada a los
 Con el fin de desarrollar este proyecto nos hemos ayudado de una serie de tecnologías entre las que encontramos: HTML5, CSS, Maven, Java, API REST, JSP, Servlet, JS, Bootstrap. Utilizando para ello el entorno de Eclipse con la suite de Spring instalada.
 
 ### Motivo
-#### SWEETALERT2
+##### SWEETALERT2
   Hemos utilizado esta tecnologia para los dialogos por que despues de haber comparado distintas herramientas hemos considerado qu ela que nos aportaba los dialosgos de una manera mas estetica a nuestro juicio era esta
-#### BOOSTRAP5
+##### BOOSTRAP5
   Hemos utilizado esta tecnologia para relaizar las vistas por que es una herramienta muy facil y con una comunidad muy activa
-#### SPRING
+##### SPRING
   Hemos utilizado esta tecnologia para la ap rest por que es la herramienta mas novedosa y por lo tanto la mas completa y simple
-#### HIBERNATE
+##### HIBERNATE
   Hemos utilizado esta tecnologia para la persistencia de la informacion por que es la herramienta mas utilizada a nivel empresarial
-#### JPA
+##### JPA
   Hemos utilizado esta tecnologia para la conexion con la base de datos por que la compatibilidad con hibernate es muy alta
-#### JQUERY
+##### JQUERY
   Hemos utilizado esta tecnologia para mejorar la funcionalidad del JavaScript por que las interaccines y la facilidad que aportan al js hacen de esta una herramienta muy util
-#### HTML5
+##### HTML5
   Hemos utilizado esta tecnologia para la maquetacion web por que es el lenguaje de etiquetas mas actual y por lo tamto a nuestro juicio el que deberia utilizarse
-#### Servlet
+##### Servlet
   Hemos utilizado esta tecnologia para utilizar codigo java y html en una misma clase por que nos parecia la forma correcta y mas simple de ralizarlo
 
 ## Proyectos
