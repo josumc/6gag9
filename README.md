@@ -59,6 +59,7 @@ Para realizar la instalacion es necesario tener el entorno de Eclipse con la sui
 ![Descarga del zip](/documentacion/zip.PNG)
 
 Cuando hayamos desargado el zip lo descomprimimos y lo importamos File>Import>Maven Project>../model-jpa una vez importado hacemos un Run As>Maven Install y una vez completado importamos de la misma manera el proyecto web y lo añadimos al tomcat. Al finalizar el proceso podemos ver la pagina buscando localhost:8080/6gag9-servlet/Inicio 
+A la hora de iniciar el despliegue en caso de dar un error tenemos que abrir el properties del proyecto y en target runtimes debemos añadir un server propio.
 
 Ahora para instalar la rest la importamos como se ha explicado para los otros proyectos y ejeccutamos la opcion Run us> Spring Boot Application. Para ver la web la importamos a un servidor web, en este caso elegimos con el xampp en la carpeta htdocs cremos una carpeta de nombre 6gag9 y copiamos el archivo index.html que encontraremos en la carpeta Rest-front de este mismo repositorio y buscando en cualquier navegador localhost/6gag9 veremos la web (sustituimos 6gag9 por el nombre de la carpeta que hayamos usado). Finalmente para ver los datos de la api-rest usaremos la url localhost:8080/swagger-ui.html
 
