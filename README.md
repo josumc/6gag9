@@ -63,4 +63,4 @@ Cuando hayamos desargado el zip lo descomprimimos y lo importamos File>Import>Ma
 Ahora para instalar la rest la importamos como se ha explicado para los otros proyectos y ejeccutamos la opcion Run us> Spring Boot Application. Para ver la web la importamos a un servidor web, en este caso elegimos con el xampp en la carpeta htdocs cremos una carpeta de nombre 6gag9 y copiamos el archivo index.html que encontraremos en la carpeta Rest-front de este mismo repositorio y buscando en cualquier navegador localhost/6gag9 veremos la web (sustituimos 6gag9 por el nombre de la carpeta que hayamos usado). Finalmente para ver los datos de la api-rest usaremos la url localhost:8080/swagger-ui.html
 
 ## Diagrama de despliege
-![diagrama de la base datos](/documentacion/Diagrama de despliege.PNG)
+![diagrama de la base datos](/documentacion/despliege.PNG)
