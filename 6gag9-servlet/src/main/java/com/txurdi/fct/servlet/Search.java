@@ -19,7 +19,10 @@ import com.txurdi.fct.jpa.model.Usuario;
 import com.txurdi.fct.servlet.model.PublicacionImage;
 
 /**
- * Servlet implementation class Search
+ * Servlet que controla la busqueda por descripcion
+ * 
+ * @author luiokx
+ * @author josumc
  */
 public class Search extends HttpServlet {
 	private static final long serialVersionUID = 1L;

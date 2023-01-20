@@ -12,7 +12,19 @@ import com.txurdi.fct.jpa.model.Likes;
 import com.txurdi.fct.jpa.model.Publicacion;
 import com.txurdi.fct.jpa.model.Usuario;
 
+/**
+ * Modelo para gestionar la tabla like
+ * 
+ * @author luiokx
+ * @author josumc
+ */
 public class LikeDaoImpl  {
+	/**
+	 * Metodo para remover un like en una publicacion
+	 * 
+	 * @param Usuario
+	 * @param Publicacion
+	 */
 	public static void removeLike(Usuario usuario, String publicacion, String id_like) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_sixgagnine");
 		EntityManager em = emf.createEntityManager();
@@ -26,8 +38,12 @@ public class LikeDaoImpl  {
 		em.close();
 	}
 	
-	
-	
+	/**
+	 * Metodo para agregar un like en una publicacion
+	 * 
+	 * @param Usuario
+	 * @param Publicacion
+	 */
 	public static void addLike(Usuario usuario, String publicacion) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_sixgagnine");
 		EntityManager em = emf.createEntityManager();
@@ -41,6 +57,12 @@ public class LikeDaoImpl  {
 		em.close();
 	}
 	
+	/**
+	 * Funcino que devuelve la cantidad de likes de una publicacion
+	 * 
+	 * @param Publicacion
+	 * @return int
+	 */
 	public static int getCountLikesOfImages(Publicacion publicacion) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_sixgagnine");
 		EntityManager em = emf.createEntityManager();
@@ -54,6 +76,14 @@ public class LikeDaoImpl  {
 		return response;
 	}
 	
+	/**
+	 * Funcino que devuelve un like de una publicacion en<br>
+	 * funcion de cada usuario
+	 * 
+	 * @param Usuario
+	 * @param Publicacion
+	 * @return Likes
+	 */
 	public static Likes getFromPublicacionWithUser(Usuario user, Publicacion publicacion) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_sixgagnine");
 		EntityManager em = emf.createEntityManager();
@@ -61,7 +91,7 @@ public class LikeDaoImpl  {
 		Likes items = null;
 		
 		try {
-			Query query = em.createQuery("FROM Likes l WHERE l.usuario = " + user.getId() + " AND l.publicacion = " + publicacion.getId());
+			Query query = em.createQuery(LikeDaoSql.getFromPublicacionWithUserQuery(user.getId(), publicacion.getId()));
 			query.setMaxResults(1);
 			items = (Likes) query.getSingleResult();
 			
@@ -75,11 +105,17 @@ public class LikeDaoImpl  {
 		return items;
 	}
 	
+	/**
+	 * Funcion que devuelve una lista de likes que pertenecen a un usuario
+	 * 
+	 * @param user
+	 * @return List<Likes>
+	 */
 	public static List<Likes> getAllLikesFromUser(Usuario user) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_sixgagnine");
 		EntityManager em = emf.createEntityManager();
 		
-		List<Likes> items = (List<Likes>) em.createQuery("FROM Likes l WHERE l.usuario = " + user.getId()).getResultList();
+		List<Likes> items = (List<Likes>) em.createQuery(LikeDaoSql.getAllLikesFromUserQuery(user.getId())).getResultList();;
 		
 		em.close();
 		

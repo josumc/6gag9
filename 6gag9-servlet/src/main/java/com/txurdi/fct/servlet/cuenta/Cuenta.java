@@ -13,6 +13,8 @@ import com.txurdi.fct.jpa.model.Usuario;
 
 /**
  * Servlet implementation class Cuenta
+ * @author luiokx
+ * @author josumc
  */
 public class Cuenta extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -146,6 +146,15 @@ public class Usuario implements Serializable {
 	}
 	
 	/**
+	 * Metodo para establecer el email
+	 * 
+	 * @return String
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	/**
 	 * Funcion para devolver el email
 	 * 
 	 * @return String
@@ -154,6 +163,11 @@ public class Usuario implements Serializable {
 		return this.password;
 	}
 	
+	/**
+	 * Metodo para establecer la contraseña al usuario
+	 * 
+	 * @param String
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}

@@ -15,6 +15,8 @@ import com.txurdi.fct.jpa.model.Usuario;
 
 /**
  * Servlet implementation class MisPublicaciones
+ * @author luiokx
+ * @author josumc
  */
 public class MisPublicaciones extends HttpServlet {
 	private static final long serialVersionUID = 1L;

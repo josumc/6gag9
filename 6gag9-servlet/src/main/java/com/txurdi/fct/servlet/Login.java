@@ -14,6 +14,9 @@ import com.txurdi.fct.jpa.model.Usuario;
 
 /**
  * Servlet implementation class Login
+ * 
+ * @author luiokx
+ * @author josumc
  */
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -43,7 +46,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String email = request.getParameter("email");
+		String email = request.getParameter("email").toLowerCase();
 		String password = request.getParameter("password");
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./view/login.jsp");

@@ -20,7 +20,10 @@ import com.txurdi.fct.jpa.model.Usuario;
 import com.txurdi.fct.servlet.model.PublicacionImage;
 
 /**
- * Servlet implementation class Inicio
+ * Servlet implementation para devolver la pagina de inicio
+ * 
+ * @author luiokx
+ * @author josumc
  */
 public class Inicio extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -16,7 +16,10 @@ import com.txurdi.fct.jpa.model.Usuario;
 import com.txurdi.fct.servlet.model.PublicacionImage;
 
 /**
- * Servlet implementation class RandomPublicacion
+ * Servlet con las funciones necesarias para devolver una pagina random
+ * 
+ * @author luiokx
+ * @author josumc
  */
 public class RandomPublicacion extends HttpServlet {
 	private static final long serialVersionUID = 1L;

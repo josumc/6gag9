@@ -9,7 +9,54 @@ import com.txurdi.fct.jpa.defaultenum.DefaultEnumInteger;
  * @author jcmoran
  */
 public class PublicacionDaoSql {
-	public static final String ADD_PUBLICACION = "INSERT INTO Publicacion(foto, descripcion, genero, estado, id_usuario) VALUES (?, ?, ?, ?, ?)";
-	public static final String VALIDAR_PUBLICACION = "UPDATE Publicacion SET estado = " + DefaultEnumInteger.VALIDO + " WHERE id = ?";
-	public static final String BORRADO_LOGICO = "UPDATE Publicacion SET estado = " + DefaultEnumInteger.ELIMINADO + " WHERE id = ?";
+	protected static final String QUERY_RANDOM = "FROM Publicacion ORDER BY RAND()";
+	
+	/**
+	 * Query para obtener una lista de las publicaciones no admitidas
+	 * 
+	 * @return String
+	 */
+	protected static String getPublicacionNoAdmitidasQuery() {
+		return "FROM Publicacion p WHERE p.estado = " + DefaultEnumInteger.DEFECTO.getValue();
+	}
+	
+	/**
+	 * Query para devolver las publicaciones de un usuario
+	 * 
+	 * @param long
+	 * @return String
+	 */
+	protected static String getPublicacionesFromUserQuery(long id_user) {
+		return "FROM Publicacion p WHERE p.usuario = " + id_user;
+	}
+	
+	/**
+	 * Query para buscar las publicaciones validas
+	 * 
+	 * @return String
+	 */
+	protected static String getFindAllQuery() {
+		return "FROM Publicacion p WHERE p.estado = " + DefaultEnumInteger.VALIDO.getValue() + " ORDER BY p.id_publicacion DESC";
+	}
+	
+	/**
+	 * Query para buscar publicacion por id
+	 * 
+	 * @param int
+	 * @return String
+	 */
+	protected static String findByIdQuery(int id) {
+		return "FROM Publicacion p WHERE p.id_publicacion = " + id;
+	}
+	
+	/**
+	 * Query para buscar una lista de publicaciones por busqueda <br>
+	 * de descripcion
+	 * 
+	 * @param String
+	 * @return String
+	 */
+	protected static String getFromDescripcionQuery(String description) {
+		return "FROM Publicacion p WHERE p.descripcion LIKE '%" + description + "%'";
+	}
 }

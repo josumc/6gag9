@@ -11,8 +11,18 @@ import javax.persistence.Query;
 import com.txurdi.fct.jpa.defaultenum.DefaultEnumInteger;
 import com.txurdi.fct.jpa.model.Usuario;
 
+/**
+ * Clase controladora de la tabla usuarios
+ * 
+ * @author luiokx
+ * @author josumc
+ */
 public class UsuarioDaoImpl {
-
+	/**
+	 * Metodo para añadir un usuario segun los parametros establecidos por el usuario
+	 * 
+	 * @param Usuario
+	 */
 	public static void addUser(Usuario usuario) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_sixgagnine");
 		EntityManager em = emf.createEntityManager();
@@ -24,6 +34,12 @@ public class UsuarioDaoImpl {
 		em.close();
 	}
 	
+	/**
+	 * Metodo para actualizar la contraseña
+	 * 
+	 * @param Usuario
+	 * @return
+	 */
 	public static Usuario updatePassword(Usuario usuario) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_sixgagnine");
 		EntityManager em = emf.createEntityManager();
@@ -41,6 +57,11 @@ public class UsuarioDaoImpl {
 		return response;
 	}
 	
+	/**
+	 * Metodo administrador para cambiar el estado de un usuario a borrado
+	 * 
+	 * @param Usuario
+	 */
 	public static void borradoLogico(long usuario) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_sixgagnine");
 		EntityManager em = emf.createEntityManager();
@@ -56,7 +77,11 @@ public class UsuarioDaoImpl {
 		em.close();
 	}
 
-
+	/**
+	 * Metodo para validar el estado de un usuario
+	 * 
+	 * @param Usuario
+	 */
 	public static void validarEstado(long usuario) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_sixgagnine");
 		EntityManager em = emf.createEntityManager();
@@ -72,6 +97,12 @@ public class UsuarioDaoImpl {
 		em.close();
 	}
 	
+	/**
+	 * Funcion que te devuelve el usuario completo cuando intente hacer login
+	 * 
+	 * @param Usuario
+	 * @return Usuario
+	 */
 	public static Usuario findUser(Usuario usuario) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_sixgagnine");
 		EntityManager em = emf.createEntityManager();
@@ -93,6 +124,12 @@ public class UsuarioDaoImpl {
 		return usu;
 	}
 	
+	/**
+	 * Funcion que te comprueba que el usuario ha sido registrado
+	 * 
+	 * @param Usuario
+	 * @return
+	 */
 	public static Usuario findUserRegistered(Usuario usuario) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_sixgagnine");
 		EntityManager em = emf.createEntityManager();
@@ -114,6 +151,11 @@ public class UsuarioDaoImpl {
 		return usu;
 	}
 	
+	/**
+	 * Funcion para devolver los usuarios no admitidos
+	 * 
+	 * @return List<Usuario>
+	 */
 	public static List<Usuario> getUsuariosNoAdmitidos() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_sixgagnine");
 		EntityManager em = emf.createEntityManager();
@@ -122,7 +164,7 @@ public class UsuarioDaoImpl {
 		
 		try {
 			
-			Query query = em.createQuery("FROM Usuario u WHERE u.estado = " + DefaultEnumInteger.DEFECTO.getValue() );
+			Query query = em.createQuery(UsuarioDaoSql.getUsuariosNoAdmitidasQuery());
 			
 			items = (List<Usuario>) query.getResultList();
 			

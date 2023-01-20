@@ -11,7 +11,10 @@ import com.txurdi.fct.jpa.dao.LikeDaoImpl;
 import com.txurdi.fct.jpa.model.Usuario;
 
 /**
- * Servlet implementation class LikePage
+ * Servlet para controlar los likes de una pagina
+ * 
+ * @author luiokx
+ * @author josumc
  */
 public class LikePage extends HttpServlet {
 	private static final long serialVersionUID = 1L;

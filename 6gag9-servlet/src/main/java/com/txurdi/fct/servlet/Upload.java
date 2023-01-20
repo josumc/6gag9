@@ -13,7 +13,10 @@ import com.txurdi.fct.jpa.dao.PublicacionDaoImpl;
 import com.txurdi.fct.jpa.model.Usuario;
 
 /**
- * Servlet implementation class Upload
+ * Servlet para gestionar el upload y transformar el codigo base64 de la imagen a bytes
+ *
+ * @author luiokx
+ * @author josumc
  */
 public class Upload extends HttpServlet {
 	private static final long serialVersionUID = 1L;

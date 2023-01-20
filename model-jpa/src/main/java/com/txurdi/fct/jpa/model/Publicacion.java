@@ -29,14 +29,6 @@ import com.txurdi.fct.jpa.defaultenum.DefaultEnumString;
 @Entity
 @Table
 public class Publicacion implements Serializable {
-	public int getId_publicacion() {
-		return id_publicacion;
-	}
-
-	public void setId_publicacion(int id_publicacion) {
-		this.id_publicacion = id_publicacion;
-	}
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -105,31 +97,51 @@ public class Publicacion implements Serializable {
 		return this.foto;
 	}
 
-	// TODO DOCUMENTAR ESTOS METODOS EN PUBLICACION
+	/**
+	 * Funcion que devuelve el valor de la descripcion
+	 * 
+	 * @return String
+	 */
 	public String getDescripcion() {
 		return this.descripcion;
 	}
 
-
+	/**
+	 * Funcion que devuelve el estado de la publicacion
+	 * 
+	 * @return int
+	 */
 	public int getEstado() {
 		return this.estado;
 	}
 	
+	/**
+	 * Metodo para establecer el estado de la publicacion
+	 * 
+	 * @param DefaultEnumInteger
+	 */
 	public void setEstado(DefaultEnumInteger defaultEnumInteger) {
 		this.estado = defaultEnumInteger.getValue();
 	}
 	
+	/**
+	 * Funcion para devolver el usuario relacionado con la publicacion
+	 * 
+	 * @return Usuario
+	 */
 	public Usuario getId_usuario() {
 		return this.usuario;
 	}
 	
+	/**
+	 * Funcion para devolver los likes relacionados con la publicacion
+	 * 
+	 * @return Set<Likes>
+	 */
 	public Set<Likes> getLikes() {
 		return likes;
 	}
-
-	public void setLikes(Set<Likes> likes) {
-		this.likes = likes;
-	}
+	
 
 	/**
 	 * Devuelve la id de publicacion
@@ -140,15 +152,40 @@ public class Publicacion implements Serializable {
 		return this.id_publicacion;
 	}
 
+	/**
+	 * 
+	 * Metodo para establecer el parametro de la foto
+	 * 
+	 * @param byte[]
+	 */
 	public void setFoto(byte[] foto) {
 		this.foto = foto;
 	}
-
+	
+	/**
+	 * Metodo para establecer la descripcion
+	 * 
+	 * @param String
+	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
+	
+	/**
+	 * Metodo para cambiar la propiedad del estado de la publicacion
+	 * 
+	 * @param int
+	 */
 	public void setEstado(int estado) {
 		this.estado = estado;
+	}
+	
+	/**
+	 * Metodo para establecer el id de la publicacion
+	 * 
+	 * @param int
+	 */
+	public void setId_publicacion(int id_publicacion) {
+		this.id_publicacion = id_publicacion;
 	}
 }

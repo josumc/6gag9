@@ -16,7 +16,10 @@ import com.txurdi.fct.jpa.model.Usuario;
 import com.txurdi.fct.servlet.model.PublicacionImage;
 
 /**
- * Servlet implementation class Busqueda
+ * Servlet para realizar la busqueda de una publicacion por id
+ * 
+ * @author luiokx
+ * @author josumc
  */
 public class Busqueda extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -57,6 +60,12 @@ public class Busqueda extends HttpServlet {
 		doGet(request, response);
 	}
 	
+	/**
+	 * Funcion que devuelve PublicacionImage para saber el like del usuario
+	 * @param id
+	 * @param user
+	 * @return
+	 */
 	private PublicacionImage getImageWithId(int id, Usuario user) {
 		com.txurdi.fct.jpa.model.Publicacion publi = PublicacionDaoImpl.findPublicacionWithId(id);
 		

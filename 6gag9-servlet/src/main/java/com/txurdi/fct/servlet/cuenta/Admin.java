@@ -16,7 +16,9 @@ import com.txurdi.fct.jpa.model.Publicacion;
 import com.txurdi.fct.jpa.model.Usuario;
 
 /**
- * Servlet implementation class Admin
+ * Servlet para controlar las funciones de administrador
+ * @author luiokx
+ * @author josumc
  */
 public class Admin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -34,6 +36,11 @@ public class Admin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getSession().getAttribute("usuario") == null) {
+			response.sendRedirect("./Inicio");
+			return;
+		}
+		
+		if(((Usuario) request.getSession().getAttribute("usuario")).getTipo() != DefaultEnumInteger.ADMINISTRADOR.getValue()) {
 			response.sendRedirect("./Inicio");
 			return;
 		}

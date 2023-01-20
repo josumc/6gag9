@@ -13,7 +13,10 @@ import com.txurdi.fct.jpa.model.Usuario;
 
 
 /**
- * Servlet implementation class Register
+ * Servlet que gestiona el registro
+ * 
+ * @author luiokx
+ * @author josumc
  */
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;

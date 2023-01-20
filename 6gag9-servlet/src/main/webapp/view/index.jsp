@@ -102,7 +102,7 @@
 	                            	</button>
 	                            	<input type="text" class="hidden" name="method_like" value="no">
 	                            <%} %>
-	                            <input type="text" name="id_publicacion" class="hidden" value="<%=publicacion.getId_publicacion()%>"/>
+	                            <input type="text" name="id_publicacion" class="hidden" value="<%=publicacion.getId()%>"/>
 	                        </div>
 	                        	<%} %>
 	                    </div>

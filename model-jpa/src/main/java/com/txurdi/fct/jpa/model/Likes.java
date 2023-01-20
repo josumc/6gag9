@@ -69,11 +69,21 @@ public class Likes implements Serializable {
 		this.publicacion = id_publicacion;
 		this.usuario = id_usuario;
 	}
-
+	
+	/**
+	 * Funcion que devuelve el id del like
+	 * 
+	 * @return int
+	 */
 	public int getId_like() {
-		return id_like;
+		return this.id_like;
 	}
-
+	
+	/**
+	 * Metodo para cambiar el valor del id
+	 * 
+	 * @param int
+	 */
 	public void setId_like(int id_like) {
 		this.id_like = id_like;
 	}

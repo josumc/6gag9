@@ -28,13 +28,23 @@ public class PublicacionController {
 		return  PublicacionDaoImpl.findAll();
 	}
 	
+	/**
+	 * Funcion api rest para devolver una publicacion random
+	 * 
+	 * @return
+	 */
 	@GetMapping(value = "/random", produces = MediaType.APPLICATION_JSON_VALUE)
 	@CrossOrigin(origins = "http://localhost")
 	public Publicacion getRandom() {
 		return PublicacionDaoImpl.getRandomPublicacion();
 	}
 
-	
+	/**
+	 * Funcion para devolver una lista con los parametros de busqueda
+	 * 
+	 * @param descripcion
+	 * @return
+	 */
 	@GetMapping(value = "search", produces = MediaType.APPLICATION_JSON_VALUE)
 	@CrossOrigin(origins = "http://localhost")
 	public List<Publicacion> getBySearch(@RequestParam("descripcion") String descripcion) {
