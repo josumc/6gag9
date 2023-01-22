@@ -56,6 +56,8 @@ publicacion (1:N) likes
 
 Para realizar la instalacion es necesario tener el entorno de Eclipse con la suite de Spring Tools, tambien es necesario tener el XAMPP para activar la conexion de bbdd y tener el apache Tomcat instalado. Para obtener esta aplicacion descargaremos el zip desde el [github](https://github.com/josumc/6gag9/)
 
+PD: Se debe crear una BBDD con el nombre 6gag9 y importar el SQL JUEGO_DE_DATOS.SQL
+
 ![Descarga del zip](/documentacion/zip.PNG)
 
 Cuando hayamos desargado el zip lo descomprimimos y lo importamos File>Import>Maven Project>../model-jpa una vez importado hacemos un Run As>Maven Install y una vez completado importamos de la misma manera el proyecto web y lo añadimos al tomcat. Al finalizar el proceso podemos ver la pagina buscando localhost:8080/6gag9-servlet/Inicio 
